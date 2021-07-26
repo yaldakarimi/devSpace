@@ -10,9 +10,12 @@ import { getPosts } from '@/lib/posts';
 export default function CategoryBlogPage({ posts, category_name, categories }) {
   return (
     <Layout>
-      <div className='flex justify-between'>
-        <div className='w-3/4 mr-10'>
-          <h1 className='text-5xl font-bold border-b-4 p-5'>
+      <div className='sm:flex sm:justify-between'>
+        <div className='w-full  px-3 sm:w-1/4 sm:px-0'>
+          <CategoryList categories={categories} />
+        </div>
+        <div className='w-full px-3 sm:w-3/4 sm:px-0 sm:ml-10'>
+          <h1 className='text-3xl md:text-5xl font-bold border-b-4 p-5'>
             All Posts in {category_name}
           </h1>
 
@@ -20,10 +23,6 @@ export default function CategoryBlogPage({ posts, category_name, categories }) {
             {posts &&
               posts.map((post, index) => <Post post={post} key={index} />)}
           </div>
-        </div>
-
-        <div className='w-1/4 '>
-          <CategoryList categories={categories} />
         </div>
       </div>
     </Layout>

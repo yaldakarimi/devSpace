@@ -10,9 +10,14 @@ import { getPosts } from '@/lib/posts';
 export default function BlogPage({ posts, numPages, currentPage, categories }) {
   return (
     <Layout>
-      <div className='flex justify-between'>
-        <div className='w-3/4 mr-10'>
-          <h1 className='text-5xl font-bold border-b-4 p-5'>Blogs</h1>
+      <div className='sm:flex sm:justify-between'>
+        <div className='w-full px-3 sm:w-1/4 sm:px-0'>
+          <CategoryList categories={categories} />
+        </div>
+        <div className='w-full px-3 ml-10 sm:w-3/4 sm:px-0'>
+          <h1 className='text-3xl font-bold border-b-4 p-5 md:text-5x'>
+            Blogs
+          </h1>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {posts &&
@@ -20,10 +25,6 @@ export default function BlogPage({ posts, numPages, currentPage, categories }) {
           </div>
 
           <Pagination currentPage={currentPage} numPages={numPages} />
-        </div>
-
-        <div className='w-1/4 '>
-          <CategoryList categories={categories} />
         </div>
       </div>
     </Layout>
